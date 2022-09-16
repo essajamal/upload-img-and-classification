@@ -49,15 +49,15 @@ app.post('/api/image-upload',upload.single('image'),async(req, res) => {
     //get host name
     var hostname = req.headers.host;
    //create url for image
-   varimageUrl=hostname+"\\"+filePath;
+   var imageUrl=hostname+"\\"+filePath;
    
 
-    let requesttoeverypixel = await api.keywords({"url": "https://library.sportingnews.com/styles/twitter_card_120x120/s3/2022-04/Messi%20PSG%20Training.png?itok=yW1geQa6", "num_keywords": 10});
+    let requesttoeverypixel = await api.keywords({"url": imageUrl, "num_keywords": 10});
     
     Promise.all([requesttoeverypixel]).then((values) => {
        
        fs.unlinkSync(filePath);
-       res.send(apiResponse({message: 'File uploaded successfully.', path:varimageUrl,tage:values[0].data}));
+       res.send(apiResponse({message: 'File uploaded successfully.', path:imageUrl,tage:values[0].data}));
       });
    //delete the photo
 });
