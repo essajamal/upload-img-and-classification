@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const multer = require('multer');
-   
+var fs = require('fs');
+
 /*------------------------------------------
 --------------------------------------------
 parse application/json
@@ -36,6 +37,9 @@ app.post('/api/image-upload',upload.single('image'),(req, res) => {
     
     const image = req.image;
     res.send(apiResponse({message: 'File uploaded successfully.', path:req.file.path}));
+   //delete the photo
+    var filePath =req.file.path; 
+    fs.unlinkSync(filePath);
 });
   
 /**
