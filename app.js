@@ -75,13 +75,16 @@ app.post('/api/image-upload',upload.single('image'),async(req, res) => {
     var hostname = req.headers.host;
    //create url for image
    var imageUrl='https://'+hostname+"/"+filePath;
+   //if you are in local env you can't use imageUrl 
+   //you can use var imageUrl=https://library.sportingnews.com/styles/twitter_card_120x120/s3/2022-04/Messi%20PSG%20Training.png?itok=yW1geQa6
    
 
     let requesttoeverypixel = await api.keywords({"url": imageUrl, "num_keywords": 10});
     
     Promise.all([requesttoeverypixel]).then((values) => {
-       
+       //after we are get the response you can delete that image in your server 
        fs.unlinkSync(filePath);
+       
        res.send(apiResponse({message: 'File uploaded successfully.', path:imageUrl,tage:values[0].data}));
       });
    //delete the photo
