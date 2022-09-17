@@ -74,7 +74,7 @@ app.post('/api/image-upload',upload.single('image'),async(req, res) => {
     //get host name
     var hostname = req.headers.host;
    //create url for image
-   var imageUrl=hostname+"\\"+filePath;
+   var imageUrl=hostname+"/"+filePath;
    
 
     let requesttoeverypixel = await api.keywords({"url": imageUrl, "num_keywords": 10});
