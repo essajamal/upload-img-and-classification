@@ -61,7 +61,8 @@ app.use(function (req, res, next) {
 // app.use(express.static('uploads')); 
 app.use('/uploads', express.static('uploads'));
 app.get('/',(req, res) => {
-   res.send(apiResponse({message: 'File uploaded successfully.'}));
+   res.send('hello world')
+   // res.send(apiResponse({message: 'File uploaded successfully.'}));
 
 })
 
