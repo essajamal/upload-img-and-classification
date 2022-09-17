@@ -40,6 +40,10 @@ var upload = multer({ storage: storage });
 
 // app.use(express.static('uploads')); 
 app.use('/uploads', express.static('uploads'));
+app.get('/',(req, res) => {
+   res.send(apiResponse({message: 'File uploaded successfully.'}));
+
+})
 
 app.post('/api/image-upload',upload.single('image'),async(req, res) => {
     
@@ -52,7 +56,7 @@ app.post('/api/image-upload',upload.single('image'),async(req, res) => {
    var imageUrl=hostname+"\\"+filePath;
    
 
-    let requesttoeverypixel = await api.keywords({"url": imageUrl, "num_keywords": 10});
+    let requesttoeverypixel = await api.keywords({"url": 'https://www.ing.com/static/ingdotcompresentation/static/images/ING_lion_RGB_200x200.png', "num_keywords": 10});
     
     Promise.all([requesttoeverypixel]).then((values) => {
        
