@@ -9,7 +9,7 @@ const api = new EveryPixel({
 	"password": "7oexd27XzHB69HwcVuwixTE47nbQ37nR43TXc2ZaxQBu3jqt"
 });
 
-
+    
 /*------------------------------------------
 --------------------------------------------
 parse application/json
