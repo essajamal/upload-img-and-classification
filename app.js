@@ -5,8 +5,8 @@ const multer = require('multer');
 var fs = require('fs');
 const EveryPixel = require('everypixel');
 const api = new EveryPixel({
-	"username": "IkSJx3qJRPx51EvlQTCcetlH",
-	"password": "7oexd27XzHB69HwcVuwixTE47nbQ37nR43TXc2ZaxQBu3jqt"
+	"username": "tuQvWvgXx7nYRRMJaWh4lVZQ",
+	"password": "tOZe7IjgnXRG4o2TMEzfOrdjqdNJ4f4lfcqe3DK4eEsWukpF"
 });
 
     
